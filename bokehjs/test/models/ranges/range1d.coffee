@@ -97,11 +97,10 @@ describe "range1d module", ->
     it "should execute update callback once", ->
       cb = new CustomJS()
       r = new Range1d({callback: cb})
-      r.start = -2.1
-
       spy = sinon.spy(cb, 'execute')
+      r.start = -2.1
       r.reset()
-      expect(spy.calledOnce).to.be.true
+      expect(spy.calledTwice).to.be.true
 
   describe "changing model attribute", ->
 
